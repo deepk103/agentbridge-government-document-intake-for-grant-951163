@@ -1,0 +1,409 @@
+{
+  "id": "tpl-1493612271",
+  "name": "Government Document Intake for Grant",
+  "description": "Government Document Intake for Grant routes applications and scores inspections; applies decision gates and observability; orchestrates via Payment System to increase transparency.",
+  "industry": "Government & Public Sector",
+  "pattern": "Tool-Use",
+  "complexity": "Intermediate",
+  "rating": 4.5,
+  "downloads": 34510,
+  "favorites": 2819,
+  "executionTime": "15 min",
+  "tags": [
+    "benefits",
+    "licensing",
+    "grants",
+    "tool-use",
+    "government"
+  ],
+  "steps": [
+    {
+      "id": "intake",
+      "name": "Request Intake",
+      "description": "Collect, validate and normalize sensors from Payment System; attach a runId and timestamp for traceability."
+    },
+    {
+      "id": "api-discovery-0",
+      "name": "API Discovery",
+      "description": "Execute api discovery phase for the Tool-Use pattern: persist interim state, enforce guardrails, and emit structured JSON results."
+    },
+    {
+      "id": "tool-execution-1",
+      "name": "Tool Execution",
+      "description": "Execute tool execution phase for the Tool-Use pattern: persist interim state, enforce guardrails, and emit structured JSON results."
+    },
+    {
+      "id": "intake-0",
+      "name": "Intake",
+      "description": "Intake across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "field-inspection-1",
+      "name": "Field Inspection",
+      "description": "Field Inspection across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "eligibility-determination-2",
+      "name": "Eligibility Determination",
+      "description": "Eligibility Determination across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "scheduling-3",
+      "name": "Scheduling",
+      "description": "Scheduling across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "background-check-4",
+      "name": "Background Check",
+      "description": "Background Check across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "decision-support-5",
+      "name": "Decision Support",
+      "description": "Decision Support across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "finalize",
+      "name": "Citizen Notification",
+      "description": "Assemble final payload with status, artifacts, KPIs and audit trail; store to GIS; return response JSON for the client."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "intake",
+      "type": "agentbridge",
+      "data": {
+        "label": "Request Intake",
+        "description": "Collect, validate and normalize sensors from Payment System; attach a runId and timestamp for traceability.",
+        "nodeType": "input",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 60,
+        "y": 120
+      }
+    },
+    {
+      "id": "api-discovery-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "API Discovery",
+        "description": "Execute api discovery phase for the Tool-Use pattern: persist interim state, enforce guardrails, and emit structured JSON results.",
+        "nodeType": "mcp",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 310,
+        "y": 120
+      }
+    },
+    {
+      "id": "tool-execution-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Tool Execution",
+        "description": "Execute tool execution phase for the Tool-Use pattern: persist interim state, enforce guardrails, and emit structured JSON results.",
+        "nodeType": "mcp",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 560,
+        "y": 120
+      }
+    },
+    {
+      "id": "intake-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "Intake",
+        "description": "Intake across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 810,
+        "y": 120
+      }
+    },
+    {
+      "id": "field-inspection-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Field Inspection",
+        "description": "Field Inspection across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1060,
+        "y": 120
+      }
+    },
+    {
+      "id": "eligibility-determination-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "Eligibility Determination",
+        "description": "Eligibility Determination across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1310,
+        "y": 120
+      }
+    },
+    {
+      "id": "scheduling-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "Scheduling",
+        "description": "Scheduling across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1560,
+        "y": 120
+      }
+    },
+    {
+      "id": "background-check-4",
+      "type": "agentbridge",
+      "data": {
+        "label": "Background Check",
+        "description": "Background Check across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1810,
+        "y": 120
+      }
+    },
+    {
+      "id": "decision-support-5",
+      "type": "agentbridge",
+      "data": {
+        "label": "Decision Support",
+        "description": "Decision Support across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "condition",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 2060,
+        "y": 120
+      }
+    },
+    {
+      "id": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "Citizen Notification",
+        "description": "Assemble final payload with status, artifacts, KPIs and audit trail; store to GIS; return response JSON for the client.",
+        "nodeType": "output",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 2310,
+        "y": 120
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-0",
+      "source": "intake",
+      "target": "api-discovery-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-1",
+      "source": "api-discovery-0",
+      "target": "tool-execution-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-2",
+      "source": "tool-execution-1",
+      "target": "intake-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-3",
+      "source": "intake-0",
+      "target": "field-inspection-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-4",
+      "source": "field-inspection-1",
+      "target": "eligibility-determination-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-5",
+      "source": "eligibility-determination-2",
+      "target": "scheduling-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-6",
+      "source": "scheduling-3",
+      "target": "background-check-4",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-7",
+      "source": "background-check-4",
+      "target": "decision-support-5",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-8",
+      "source": "decision-support-5",
+      "target": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    }
+  ],
+  "preview": "Request Intake → API Discovery → Tool Execution → Intake → Field Inspection → Eligibility Determination → Scheduling → Background Check → Decision Support → Citizen Notification",
+  "featured": true,
+  "createdAt": "2025-10-07T21:15:28.505Z",
+  "author": "AgentBridge Team",
+  "deployments": 3500,
+  "lastDeployed": "2026-04-02T23:50:54.387Z",
+  "configuration": {
+    "provider": "aws",
+    "region": "us-west-2",
+    "compute": "gpu-single"
+  },
+  "healthStatus": "degraded",
+  "deploymentCount": 1729,
+  "githubRepo": "https://github.com/agentbridge/government-document-intake-for-grant",
+  "maintainer": "AgentBridge Team",
+  "agenticLayers": {
+    "reasoning": {
+      "modelType": "gpt-4o",
+      "reasoningPattern": "ReAct",
+      "contextWindow": 128000,
+      "memorySystem": "hybrid",
+      "decisionFramework": "Multi-Criteria Decision Analysis"
+    },
+    "orchestration": {
+      "workflowEngine": "n8n",
+      "coordinationPattern": "centralized",
+      "failoverStrategy": "retry",
+      "loadBalancing": "intelligent"
+    },
+    "protocol": {
+      "communicationProtocol": "MCP",
+      "messageFormat": "JSON",
+      "authenticationMethod": "OAuth2",
+      "encryptionStandard": "AES-256"
+    },
+    "governance": {
+      "policyEngine": "OPA",
+      "complianceStandards": [
+        "SOC2",
+        "GDPR"
+      ],
+      "auditTrail": true,
+      "riskAssessment": "medium",
+      "dataClassification": "internal"
+    },
+    "observability": {
+      "metricsCollection": "Prometheus",
+      "loggingFramework": "ELK",
+      "tracingSystem": "Jaeger",
+      "alertingRules": [],
+      "dashboardConfig": {
+        "layout": "grid",
+        "widgets": [
+          "metrics",
+          "logs",
+          "traces"
+        ],
+        "refreshInterval": 30
+      }
+    },
+    "intelligence": {
+      "learningCapability": "online",
+      "knowledgeBase": "vector-db",
+      "adaptationMechanism": "ml-based",
+      "performanceOptimization": "ai-driven"
+    }
+  },
+  "businessFunction": "data-preparation-node",
+  "autonomyLevel": "semi-autonomous",
+  "cognitiveCapabilities": [
+    {
+      "name": "Pattern Recognition",
+      "description": "Identifies patterns in business processes",
+      "confidenceLevel": 0.85,
+      "lastUpdated": "2026-04-13T21:15:28.566Z"
+    }
+  ],
+  "roiMetrics": {
+    "costSavings": 78730,
+    "timeReduction": 84,
+    "accuracyImprovement": 14,
+    "throughputIncrease": 27,
+    "errorReduction": 36
+  },
+  "complianceFramework": {
+    "standards": [
+      "SOC2",
+      "GDPR",
+      "ISO27001"
+    ],
+    "certifications": [
+      "SOC2 Type II"
+    ],
+    "auditFrequency": "monthly",
+    "lastAudit": "2026-02-04T05:51:00.322Z"
+  },
+  "scalingPolicy": {
+    "minInstances": 1,
+    "maxInstances": 10,
+    "scaleUpThreshold": 80,
+    "scaleDownThreshold": 20,
+    "cooldownPeriod": 300
+  }
+}
